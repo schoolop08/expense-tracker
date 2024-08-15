@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left Card: Input Form -->
+      <div class="card">
+        <form id="money-form">
+          <!-- <input
+            type="number"
+            id="money"
+            placeholder="Enter available money"
+            required
+          />
+          <button type="submit">Set Money</button> -->
+        </form>
+
+        <form id="expense-form">
+          <h1 class="title">Expense Tracker</h1>
+          <input type="number" id="amount" placeholder="Amount" required />
+          <select id="category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Food">Food</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Bills">Bills</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Savings">Savings</option>
+            <option value="Travel">Travel</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Gifts & Donations">Gifts & Donations</option>
+            <option value="Others">Others</option>
+          </select>
+          <input type="date" id="date" required />
+          <div id="feedback" class="feedback"></div>
+          <button type="submit">Add Expense</button>
+        </form>
+
+        <!-- Right Card: Results and Balance -->
+        <div class="result">
+          <div class="balance">
+            <h1>Available Balance</h1>
+            <h1 class="balance" id="balance"></h1>
+          </div>
+
+          <div class="filters">
+            <input
+              type="text"
+              id="filter-category"
+              placeholder="Filter by Category"
+            />
+            <input type="date" id="filter-date" placeholder="Filter by Date" />
+          </div>
+
+          <div class="expense-list-container"><ul id="expense-list"></ul></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --primary: #26c0ab;
+    --primaryb: #26c0ab8a;
+    --accent: #00494d;
+    --accentb: #00494d9a;
+    --text: #315053;
+    --background: #c5e4e7;
+    --white: #f1fffd;
+    --whiteb: #f1fffd9a;
+    --error: #6e0b15;
+    --errorb: #ff9ea7;
+    --success: #155724;
+    --successb: #a8fbbb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    transition: 0.5s ease-in;
+    scrollbar-width: 10px;
+    scrollbar-color: var(--background) var(--accent);
+}
+
+*::selection {
+    background-color: var(--primaryb);
+    color: var(--white);
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    overflow-y: hidden;
+}
+
+.container {
+    padding: 50px;
+    margin: 100px;
+    background-color: var(--whiteb);
+    color: var(--text);
+    border-radius: 25px;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+}
+
+.card form {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input,
+button,
+select {
+    /* width: 350px; */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    background-color: var(--white);
+}
+
+input:hover,
+button:hover,
+select:hover {
+    cursor: pointer;
+}
+
+#money-form {
+    position: fixed;
+    top: 0;
+}
+
+.balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: safe;
+    width: 100%;
+}
+
+button {
+    background-color: var(--accent);
+    color: var(--white);
+    border-radius: 100px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+#reset-balance {
+    padding: 5px;
+    height: 80%;
+    width: 45%;
+}
+
+.result {
+    width: 51%;
+    border-radius: 10px;
+    background-color: var(--accent);
+    color: var(--primary);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.result h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    margin: 0;
+}
+
+.result h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filters {
+    width: 100%;
+    display: flex;
+    gap: 1vw;
+    flex-direction: row;
+}
+
+.filters input {
+    width: 100%;
+}
+
+.feedback {
+    padding: 15px;
+}
+
+.feedback.error {
+    color: var(--error);
+    background-color: var(--errorb);
+    padding: 5px 10px;
+}
+
+.feedback.success {
+    color: var(--success);
+    background-color: var(--successb);
+    padding: 5px 10px;
+}
+
+.expense-list-container {
+    height: 150px;
+    border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--primary);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.expense-item button {
+    background-color: var(--errorb);
+    color: var(--error);
+    font-size: 24px;
+    border: solid 1px var(--error);
+    padding: 2.5px 50px;
+}
+
+@media (max-width: 850px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .container {
+        margin: 0;
+        border-radius: 0;
+        height: 100%;
+        padding: 50px 25px;
+    }
+
+    .card {
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+
+    .result {
+        width: 100%;
+    }
+
+    .card form {
+        width: 100%;
+    }
+
+    .expense-list-container {
+        height: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    #balance {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #reset-balance {
+        width: 100%;
+    }
+}
