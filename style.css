@@ -76,12 +76,15 @@ select {
     border-radius: 5px;
     border: 1px solid var(--primary);
     background-color: var(--white);
+    backdrop-filter: brightness(0);
+    transition: 1s;
 }
 
 input:hover,
 button:hover,
 select:hover {
     cursor: pointer;
+    backdrop-filter: brightness(5);
 }
 
 #money-form {
@@ -98,7 +101,7 @@ select:hover {
 }
 
 button {
-    background-color: var(--accent);
+    background-color: var(--accentb);
     color: var(--white);
     border-radius: 100px;
     font-weight: 600;
@@ -109,6 +112,7 @@ button {
     padding: 5px;
     height: 80%;
     width: 45%;
+    background-color: var(--primaryb);
 }
 
 .result {
@@ -178,7 +182,7 @@ button {
     color: var(--error);
     font-size: 24px;
     border: solid 1px var(--error);
-    padding: 2.5px 50px;
+    padding: 2.5px 10PX;
 }
 
 @media (max-width: 850px) {
