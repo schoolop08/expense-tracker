@@ -207,6 +207,11 @@ button {
     padding: 2.5px 10PX;
 }
 
+#expense-list h4 {
+    color: var(--primary);
+    font-weight: 600;
+}
+
 /* Loader container styling */
 .loader-container {
     position: fixed;
