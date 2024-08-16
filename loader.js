@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const currentTime = new Date().getTime();
       const elapsedTime = currentTime - loaderStartTime;
 
-      // Ensure the loader stays visible for at least 1 second (1000ms)
-      const minimumLoaderTime = 750;
+      const minimumLoaderTime = 1500;
       const remainingTime = minimumLoaderTime - elapsedTime;
 
       // If the remaining time is positive, wait that amount before removing the loader
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
           loaderContainer.style.transition = 'opacity 0.5s ease-out';
           setTimeout(() => {
               loaderContainer.style.display = 'none';
-          }, 500);
+          }, 1000);
       }
   }
 

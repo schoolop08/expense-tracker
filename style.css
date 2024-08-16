@@ -21,7 +21,6 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    transition: 0.5s ease-in;
     scrollbar-width: 10px;
     scrollbar-color: var(--background) var(--accent);
 }
@@ -45,6 +44,7 @@ html {
     background-color: var(--whiteb);
     color: var(--text);
     border-radius: 25px;
+    transition: 0.5s ease-in;
 }
 
 h1 {
@@ -57,6 +57,26 @@ h1 {
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup .popup-content {
+    text-align: center;
 }
 
 .card form {
@@ -209,20 +229,22 @@ button {
     /* Set a fixed width to control the scale */
     height: 90px;
     /* Set a fixed height to control the scale */
-    transform: scale(0.9);
-    /* Scale down to 0.9 */
-    animation: rotateLogo 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
+    animation: logo 0.5s ease-in-out alternate-reverse;
     /* Rotate animation */
 }
 
 /* Animation keyframes for rotating the logo */
-@keyframes rotateLogo {
+@keyframes logo {
     0% {
-        transform: scale(0.9) rotate(0deg);
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
     }
 
     100% {
-        transform: scale(0.9) rotate(360deg);
+        transform: scale(1);
     }
 }
 
