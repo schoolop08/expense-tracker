@@ -25,19 +25,19 @@
   </head>
   <body>
     <div class="container">
+      <div id="balance-popup" class="popup hidden">
+        <div class="popup-content">
+          <h3>Set Your Initial Balance</h3>
+          <input
+            type="number"
+            id="initial-balance"
+            placeholder="Enter balance"
+          />
+          <button id="set-balance-btn">Set Balance</button>
+        </div>
+      </div>
       <!-- Left Card: Input Form -->
       <div class="card">
-        <div id="balance-popup" class="popup hidden">
-          <div class="popup-content">
-            <h3>Set Your Initial Balance</h3>
-            <input
-              type="number"
-              id="initial-balance"
-              placeholder="Enter balance"
-            />
-            <button id="set-balance-btn">Set Balance</button>
-          </div>
-        </div>
         <form id="money-form">
           <!-- <input
             type="number"
