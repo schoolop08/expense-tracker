@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const moneyForm = document.getElementById("money-form");
     const expenseForm = document.getElementById("expense-form");
@@ -62,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         availableMoney -= amount;
         localStorage.setItem("money", availableMoney);
         updateBalance();
-
+  
         displayExpenses();
         expenseForm.reset();
         showFeedback("Expense added successfully", "success");
@@ -150,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateBalance() {
         balanceDiv.innerHTML = `₹${availableMoney.toFixed(2)} 
                 <button id="reset-balance">Reset Balance</button>`;
-        document.getElementById("reset-balance").addEventListener("click", resetBalance);
+        document.getElementById("reset-balance").addEventListener("click", showBalancePopup);
         validateAmount();
     }
   
@@ -219,7 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     loadInitialData();
-
   });
   
-

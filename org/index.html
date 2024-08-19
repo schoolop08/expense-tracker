@@ -22,14 +22,12 @@
       sizes="16x16"
       href="favicon_io/favicon-16x16.png"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div id="balance-popup" class="popup hidden">
         <div class="popup-content">
-          <h3>You have ₹0.00 Balance</h3>
-          <h4>Set Your Initial Balance</h4>
+          <h4>Set Your Balance</h4>
           <input
             type="number"
             id="initial-balance"
@@ -106,46 +104,9 @@
           <div class="expense-list-container"><ul id="expense-list"></ul></div>
         </div>
       </div>
-      <canvas
-        id="myChart"
-        style="width: 50%; max-width: 800px; height: 500px; max-height: 500px"
-      ></canvas>
     </div>
 
     <script src="script.js"></script>
     <script src="loader.js"></script>
-
-    <script>
-      function getExpenses() {
-        return localStorage.getItem("expenses")
-          ? JSON.parse(localStorage.getItem("expenses"))
-          : [];
-      }
-
-      const expenses = getExpenses();
-
-      // Assuming expenses have 'date' and 'amount' properties
-      const chartData = expenses.map((expense) => ({
-        x: expense.date, // Convert date to Date object
-        y: expense.amount,
-      }));
-
-      const ctx = document.getElementById("myChart").getContext("2d");
-      const myChart = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: chartData.map((data) => data.x), // Extract dates for labels
-          datasets: [
-            {
-              label: "Expenses",
-              data: chartData,
-              borderColor: "red",
-              fill: false,
-            },
-          ],
-        },
-        options: {},
-      });
-    </script>
   </body>
 </html>
