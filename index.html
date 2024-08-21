@@ -108,44 +108,10 @@
       </div>
       <canvas
         id="myChart"
-        style="width: 50%; max-width: 800px; height: 500px; max-height: 500px"
       ></canvas>
     </div>
 
     <script src="script.js"></script>
     <script src="loader.js"></script>
-
-    <script>
-      function getExpenses() {
-        return localStorage.getItem("expenses")
-          ? JSON.parse(localStorage.getItem("expenses"))
-          : [];
-      }
-
-      const expenses = getExpenses();
-
-      // Assuming expenses have 'date' and 'amount' properties
-      const chartData = expenses.map((expense) => ({
-        x: expense.date, // Convert date to Date object
-        y: expense.amount,
-      }));
-
-      const ctx = document.getElementById("myChart").getContext("2d");
-      const myChart = new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: chartData.map((data) => data.x), // Extract dates for labels
-          datasets: [
-            {
-              label: "Expenses",
-              data: chartData,
-              borderColor: "red",
-              fill: false,
-            },
-          ],
-        },
-        options: {},
-      });
-    </script>
   </body>
 </html>
