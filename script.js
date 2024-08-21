@@ -117,10 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.keys(groupedExpenses).forEach((date) => {
             // Filter out groups based on filtered date if needed
             if (filteredDate === "" || date === filteredDate) {
-                // Create a date header
-                const dateHeader = document.createElement("h4");
-                dateHeader.textContent = date;
-                expenseList.appendChild(dateHeader);
   
                 groupedExpenses[date].forEach((expense) => {
                     // Filter out individual expenses based on category if needed
@@ -128,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         filteredCategory === "" ||
                         expense.category.toLowerCase().includes(filteredCategory)
                     ) {
+                    // Create a date header
+                    const dateHeader = document.createElement("h4");
+                    dateHeader.textContent = date;
+                    expenseList.appendChild(dateHeader);
                         const li = document.createElement("h3");
                         li.className = "expense-item";
                         li.dataset.id = expense.id;
