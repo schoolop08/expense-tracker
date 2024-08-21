@@ -1,7 +1,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const moneyForm = document.getElementById("money-form");
+    // const moneyForm = document.getElementById("money-form");
     const expenseForm = document.getElementById("expense-form");
     const expenseList = document.getElementById("expense-list");
     const filterCategory = document.getElementById("filter-category");
@@ -12,25 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoryInput = document.getElementById("category");
     let availableMoney = 0;
   
-    moneyForm.addEventListener("submit", setMoney);
+    // moneyForm.addEventListener("submit", setMoney);
     expenseForm.addEventListener("submit", addExpense);
     expenseList.addEventListener("click", deleteExpense);
     filterCategory.addEventListener("input", filterExpenses);
     filterDate.addEventListener("input", filterExpenses);
     amountInput.addEventListener("input", validateAmount);
   
-    function setMoney(e) {
-        e.preventDefault();
-        availableMoney = parseFloat(document.getElementById("money").value);
-        if (availableMoney < 0) {
-            showFeedback("Money cannot be negative", "error");
-            return;
-        }
-        localStorage.setItem("money", availableMoney);
-        updateBalance();
-        moneyForm.reset();
-        showFeedback("Money set successfully", "success", true);
-    }
+    // function setMoney(e) {
+    //     e.preventDefault();
+    //     availableMoney = parseFloat(document.getElementById("money").value);
+    //     if (availableMoney < 0) {
+    //         showFeedback("Money cannot be negative", "error");
+    //         return;
+    //     }
+    //     localStorage.setItem("money", availableMoney);
+    //     updateBalance();
+    //     moneyForm.reset();
+    //     showFeedback("Money set successfully", "success", true);
+    // }
   
     function addExpense(e) {
         e.preventDefault();
@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             displayExpenses();
             showFeedback("Expense deleted successfully", "success");
         }
+        chartExpenses();
     }
   
     function filterExpenses() {
@@ -139,6 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
         });
+        chartExpenses()
     }
   
     function getExpenses() {
@@ -193,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         updateBalance();
         displayExpenses();
+        chartExpenses();
     }
   
     function showBalancePopup() {
@@ -219,6 +222,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     loadInitialData();
+
+    
+
+      function chartExpenses() {
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const expenses = getExpenses();
+              // Assuming expenses have 'date' and 'amount' properties
+        const chartData = expenses.map((expense) => ({
+        x: expense.date, // Convert date to Date object
+        y: expense.amount,
+        }));
+        const myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: chartData.map((data) => data.x), // Extract dates for labels
+          datasets: [
+            {
+              label: "Expenses",
+              data: chartData,
+              borderColor: "red",
+              fill: false,
+            },
+          ],
+        },
+        options: {},
+      });}
 
   });
   
